@@ -53,10 +53,7 @@ class ClientType extends AbstractType
                 ]
             ])
             
-            
-            
-            
-            ->add('User', EntityType::class, [
+             ->add('User', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'username',
 
@@ -65,6 +62,11 @@ class ClientType extends AbstractType
                 ]
 
             ])
+            
+            
+            
+            
+          
         
            
            

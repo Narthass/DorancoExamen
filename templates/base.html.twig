@@ -6,8 +6,9 @@
 			{% block title %}Interloc
 			{% endblock %}
 		</title>
-
-
+        
+        {% block meta %}{% endblock %}
+		
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,20 +21,32 @@
 		{% endblock %}
 
 		{% block javascripts %}
+		    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-35MWM6SN1P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-35MWM6SN1P');
+</script>
 			
 			{{ encore_entry_script_tags('app') }}
 			
 		{% endblock %}
 	</head>
-	<body>
+	<body >
 		{% include 'layout/header.html.twig'%}
 		{% for message in app.flashes('success') %}
-			<div class="alert alert-success d-flex align-items-center" role="alert" id="flash">
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
 				{{ message }}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
 
 		{% endfor %}
+		<div class="m-5">
 		{% block body %}{% endblock %}
+		</div>
 		{% include 'layout/footer.html.twig' %}
 
 	</body>

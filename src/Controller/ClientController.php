@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+
 use App\Entity\Client;
 use App\Entity\Contrat;
 use App\Form\ClientType;
@@ -65,6 +66,7 @@ class ClientController extends AbstractController
     {
         $entityManager = $doctrine->getManager();
         $client = new Client;
+        
         $clientForm = $this->createForm(ClientType::class, $client);
         $clientForm->handleRequest($request);
         if ($clientForm->isSubmitted() && $clientForm->isValid()) {

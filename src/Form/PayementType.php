@@ -17,7 +17,10 @@ class PayementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('SommePayee', NumberType::class,)
+            ->add('SommePayee', NumberType::class,
+             ['attr' => [
+                    'class' =>'form-control border border-info',
+                ],])
             ->add('TypePayement',ChoiceType::class,[
                 
                 'label'=>'Quel type de payement est-ce?',
@@ -25,6 +28,9 @@ class PayementType extends AbstractType
                     'Payement'=>'Payement',
                     'Remboursement'=>'Remboursement',
                     
+                ],
+                'attr' => [
+                    'class' =>'form-control border border-info',
                 ],
                 'expanded'=>true,
                 'multiple'=>false,
@@ -38,6 +44,9 @@ class PayementType extends AbstractType
                 
                 'format'=> 'dd-MM-yyyy',
                 'data_class' =>null,
+                'attr' => [
+                    'class' =>'form-control border border-info',
+                ],
                 
                 
                 'data' => new \Datetime('now'),
@@ -55,8 +64,12 @@ class PayementType extends AbstractType
                         'liquide'=>'liquide',
                         
                     ],
+                    'attr' => [
+                    'class' =>'form-control border border-info',
+                ],
                     
                 ]
+                 
             )
             
             ->add('submit', SubmitType::class, [
