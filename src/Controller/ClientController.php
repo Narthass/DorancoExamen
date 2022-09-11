@@ -8,7 +8,7 @@ use App\Entity\User;
 use App\Entity\Client;
 use App\Entity\Contrat;
 use App\Form\ClientType;
-use function PHPSTORM_META\map;
+
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
@@ -69,6 +69,9 @@ class ClientController extends AbstractController
     {
         $entityManager = $doctrine->getManager();
         $client = new Client;
+         /** @var \App\Entity\User $user */
+         $user=$this->getUser();
+         $client->setUser($user);
 
         $clientForm = $this->createForm(ClientType::class, $client);
         $clientForm->handleRequest($request);
