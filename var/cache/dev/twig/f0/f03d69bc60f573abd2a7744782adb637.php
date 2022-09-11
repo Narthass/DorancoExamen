@@ -87,7 +87,11 @@ class __TwigTemplate_4ef40d24431e688e9bbe52fd100df76d extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 7
-        echo "<script>   
+        echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
+        echo "
+<script>   
+\t\t\t
+\t\t\t
 function afficherContratsArchives(){
 \tvar bouttonContratsArchives = document.getElementById(\"contratsArchives\");
     if (bouttonContratsArchives.style.display == \"none\") {
@@ -107,7 +111,7 @@ function afficherContratsArchives(){
 
     }
 
-    // line 19
+    // line 22
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -117,7 +121,7 @@ function afficherContratsArchives(){
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 20
+        // line 23
         echo "\t
 \t<style>
 \t\t.example-wrapper {
@@ -138,33 +142,33 @@ function afficherContratsArchives(){
 
 \t<h1>Liste des contrats de
 \t\t";
-        // line 39
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["client"]) || array_key_exists("client", $context) ? $context["client"] : (function () { throw new RuntimeError('Variable "client" does not exist.', 39, $this->source); })()), "nom", [], "any", false, false, false, 39), "html", null, true);
+        // line 42
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["client"]) || array_key_exists("client", $context) ? $context["client"] : (function () { throw new RuntimeError('Variable "client" does not exist.', 42, $this->source); })()), "nom", [], "any", false, false, false, 42), "html", null, true);
         echo "
 \t\t";
-        // line 40
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["client"]) || array_key_exists("client", $context) ? $context["client"] : (function () { throw new RuntimeError('Variable "client" does not exist.', 40, $this->source); })()), "prenom", [], "any", false, false, false, 40), "html", null, true);
+        // line 43
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["client"]) || array_key_exists("client", $context) ? $context["client"] : (function () { throw new RuntimeError('Variable "client" does not exist.', 43, $this->source); })()), "prenom", [], "any", false, false, false, 43), "html", null, true);
         echo "
 \t</h1>
 \t<td>
 \t\t<a href=\"";
-        // line 43
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contrat_create_for_client", ["clientId" => twig_get_attribute($this->env, $this->source, (isset($context["client"]) || array_key_exists("client", $context) ? $context["client"] : (function () { throw new RuntimeError('Variable "client" does not exist.', 43, $this->source); })()), "id", [], "any", false, false, false, 43)]), "html", null, true);
+        // line 46
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contrat_create_for_client", ["clientId" => twig_get_attribute($this->env, $this->source, (isset($context["client"]) || array_key_exists("client", $context) ? $context["client"] : (function () { throw new RuntimeError('Variable "client" does not exist.', 46, $this->source); })()), "id", [], "any", false, false, false, 46)]), "html", null, true);
         echo "\" role=\"button\" class=\"btn btn-warning text-light\">Ajouter un contrat</a>
 \t</td>
 \t";
-        // line 45
+        // line 48
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["client"]) || array_key_exists("client", $context) ? $context["client"] : (function () { throw new RuntimeError('Variable "client" does not exist.', 45, $this->source); })()), "contrats", [], "any", false, false, false, 45));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["client"]) || array_key_exists("client", $context) ? $context["client"] : (function () { throw new RuntimeError('Variable "client" does not exist.', 48, $this->source); })()), "contrats", [], "any", false, false, false, 48));
         foreach ($context['_seq'] as $context["_key"] => $context["contrat"]) {
-            // line 46
+            // line 49
             echo "\t\t";
-            if ((twig_get_attribute($this->env, $this->source, $context["contrat"], "archivé", [], "any", false, false, false, 46) == false)) {
-                // line 47
+            if ((twig_get_attribute($this->env, $this->source, $context["contrat"], "archivé", [], "any", false, false, false, 49) == false)) {
+                // line 50
                 echo "
 \t\t\t<h2>contrat :";
-                // line 48
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "id", [], "any", false, false, false, 48), "html", null, true);
+                // line 51
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "id", [], "any", false, false, false, 51), "html", null, true);
                 echo "</h2>
 \t\t\t<table class=\"table border-info\">
 \t\t\t\t<tr>
@@ -182,39 +186,39 @@ function afficherContratsArchives(){
 
 \t\t\t\t<tr>
 \t\t\t\t\t<td>";
-                // line 64
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "surface", [], "any", false, false, false, 64), "html", null, true);
+                // line 67
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "surface", [], "any", false, false, false, 67), "html", null, true);
                 echo "</td>
 
 \t\t\t\t\t<td>";
-                // line 66
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "loyer", [], "any", false, false, false, 66), "html", null, true);
+                // line 69
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "loyer", [], "any", false, false, false, 69), "html", null, true);
                 echo "</td>
 \t\t\t\t\t<td>";
-                // line 67
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "MontantRestant", [], "any", false, false, false, 67), "html", null, true);
+                // line 70
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "MontantRestant", [], "any", false, false, false, 70), "html", null, true);
                 echo "</td>
 \t\t\t\t\t<td>";
-                // line 68
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "ProchaineEcheance", [], "any", false, false, false, 68), "d/m/y"), "html", null, true);
+                // line 71
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "ProchaineEcheance", [], "any", false, false, false, 71), "d/m/y"), "html", null, true);
                 echo "</td>
 \t\t\t\t\t<td>
 \t\t\t\t\t\t<a href=\"";
-                // line 70
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contrat_delete", ["contratId" => twig_get_attribute($this->env, $this->source, $context["contrat"], "id", [], "any", false, false, false, 70), "clientId" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["contrat"], "client", [], "any", false, false, false, 70), "id", [], "any", false, false, false, 70)]), "html", null, true);
+                // line 73
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contrat_delete", ["contratId" => twig_get_attribute($this->env, $this->source, $context["contrat"], "id", [], "any", false, false, false, 73), "clientId" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["contrat"], "client", [], "any", false, false, false, 73), "id", [], "any", false, false, false, 73)]), "html", null, true);
                 echo "\" onclick=\"return confirm('etes vous sur de vouloir supprimer ce client?')\" role=\"button\" class=\"btn btn-outline-danger\">supprimer</a>
 \t\t\t\t\t</td>
 \t\t\t\t\t<td>
 \t\t\t\t\t\t<a href=\"";
-                // line 73
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contrat_update", ["contratId" => twig_get_attribute($this->env, $this->source, $context["contrat"], "id", [], "any", false, false, false, 73)]), "html", null, true);
+                // line 76
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contrat_update", ["contratId" => twig_get_attribute($this->env, $this->source, $context["contrat"], "id", [], "any", false, false, false, 76)]), "html", null, true);
                 echo "\" role=\"button\" class=\"btn btn-outline-info\">modifier</a>
 \t\t\t\t\t</td>
 
 \t\t\t\t\t<td>
 \t\t\t\t\t\t<a href=\"";
-                // line 77
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("payements_display", ["contratId" => twig_get_attribute($this->env, $this->source, $context["contrat"], "id", [], "any", false, false, false, 77)]), "html", null, true);
+                // line 80
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("payements_display", ["contratId" => twig_get_attribute($this->env, $this->source, $context["contrat"], "id", [], "any", false, false, false, 80)]), "html", null, true);
                 echo "\" role=\"button\" class=\"btn btn-outline-success\">payements</a>
 \t\t\t\t\t</td>
 \t\t\t\t</tr>
@@ -222,8 +226,8 @@ function afficherContratsArchives(){
 \t\t\t\t<tr>
 \t\t\t\t\t<td class=\"border-bottom-0\">
 \t\t\t\t\t\t<a href=\"";
-                // line 83
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contrat_archiver", ["contratId" => twig_get_attribute($this->env, $this->source, $context["contrat"], "id", [], "any", false, false, false, 83)]), "html", null, true);
+                // line 86
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contrat_archiver", ["contratId" => twig_get_attribute($this->env, $this->source, $context["contrat"], "id", [], "any", false, false, false, 86)]), "html", null, true);
                 echo "\" role=\"button\" class=\"w3-btn w3-white w3-border w3-border-brown w3-round-xlarge\">archiver</a>
 \t\t\t\t\t</td>
 \t\t\t\t</tr>
@@ -231,16 +235,16 @@ function afficherContratsArchives(){
 \t\t\t</table>
 \t\t";
             }
-            // line 89
+            // line 92
             echo "\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['contrat'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 90
+        // line 93
         echo "\t";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["client"]) || array_key_exists("client", $context) ? $context["client"] : (function () { throw new RuntimeError('Variable "client" does not exist.', 90, $this->source); })()), "contrats", [], "any", false, false, false, 90));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["client"]) || array_key_exists("client", $context) ? $context["client"] : (function () { throw new RuntimeError('Variable "client" does not exist.', 93, $this->source); })()), "contrats", [], "any", false, false, false, 93));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -255,13 +259,13 @@ function afficherContratsArchives(){
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["contrat"]) {
-            // line 91
+            // line 94
             echo "\t\t";
-            if ((twig_get_attribute($this->env, $this->source, $context["contrat"], "archivé", [], "any", false, false, false, 91) == true)) {
-                // line 92
+            if ((twig_get_attribute($this->env, $this->source, $context["contrat"], "archivé", [], "any", false, false, false, 94) == true)) {
+                // line 95
                 echo "\t\t\t";
-                if ((twig_get_attribute($this->env, $this->source, $context["loop"], "index0", [], "any", false, false, false, 92) == 0)) {
-                    // line 93
+                if ((twig_get_attribute($this->env, $this->source, $context["loop"], "index0", [], "any", false, false, false, 95) == 0)) {
+                    // line 96
                     echo "\t\t\t\t<button onclick=\"afficherContratsArchives()\">Les contrats archivés</button>
 
 
@@ -277,29 +281,29 @@ function afficherContratsArchives(){
 \t\t\t\t\t\t</tr>
 \t\t\t\t\t";
                 }
-                // line 107
+                // line 110
                 echo "\t\t\t\t\t<tr>
 \t\t\t\t\t\t<td>";
-                // line 108
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "surface", [], "any", false, false, false, 108), "html", null, true);
+                // line 111
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "surface", [], "any", false, false, false, 111), "html", null, true);
                 echo "</td>
 
 \t\t\t\t\t\t<td>";
-                // line 110
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "loyer", [], "any", false, false, false, 110), "html", null, true);
+                // line 113
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "loyer", [], "any", false, false, false, 113), "html", null, true);
                 echo "</td>
 \t\t\t\t\t\t<td>";
-                // line 111
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "MontantRestant", [], "any", false, false, false, 111), "html", null, true);
+                // line 114
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "MontantRestant", [], "any", false, false, false, 114), "html", null, true);
                 echo "</td>
 \t\t\t\t\t\t<td>";
-                // line 112
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "ProchaineEcheance", [], "any", false, false, false, 112), "d/m/y"), "html", null, true);
+                // line 115
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contrat"], "ProchaineEcheance", [], "any", false, false, false, 115), "d/m/y"), "html", null, true);
                 echo "</td>
 \t\t\t\t\t</tr>
 \t\t\t\t";
             }
-            // line 115
+            // line 118
             echo "\t\t\t";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
@@ -313,7 +317,7 @@ function afficherContratsArchives(){
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['contrat'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 116
+        // line 119
         echo "\t\t</table>
 \t</div>
 ";
@@ -337,7 +341,7 @@ function afficherContratsArchives(){
 
     public function getDebugInfo()
     {
-        return array (  317 => 116,  303 => 115,  297 => 112,  293 => 111,  289 => 110,  284 => 108,  281 => 107,  265 => 93,  262 => 92,  259 => 91,  241 => 90,  235 => 89,  226 => 83,  217 => 77,  210 => 73,  204 => 70,  199 => 68,  195 => 67,  191 => 66,  186 => 64,  167 => 48,  164 => 47,  161 => 46,  157 => 45,  152 => 43,  146 => 40,  142 => 39,  121 => 20,  111 => 19,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
+        return array (  321 => 119,  307 => 118,  301 => 115,  297 => 114,  293 => 113,  288 => 111,  285 => 110,  269 => 96,  266 => 95,  263 => 94,  245 => 93,  239 => 92,  230 => 86,  221 => 80,  214 => 76,  208 => 73,  203 => 71,  199 => 70,  195 => 69,  190 => 67,  171 => 51,  168 => 50,  165 => 49,  161 => 48,  156 => 46,  150 => 43,  146 => 42,  125 => 23,  115 => 22,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -348,7 +352,10 @@ function afficherContratsArchives(){
 {% endblock %}
 
 {% block javascripts %}
+{{ encore_entry_script_tags('app') }}
 <script>   
+\t\t\t
+\t\t\t
 function afficherContratsArchives(){
 \tvar bouttonContratsArchives = document.getElementById(\"contratsArchives\");
     if (bouttonContratsArchives.style.display == \"none\") {
@@ -460,6 +467,6 @@ function afficherContratsArchives(){
 \t\t</table>
 \t</div>
 {% endblock %}
-", "index/contrats.html.twig", "C:\\xampp\\htdocs\\ProjetCaravane\\templates\\index\\contrats.html.twig");
+", "index/contrats.html.twig", "C:\\xampp\\htdocs\\DorancoExamen\\templates\\index\\contrats.html.twig");
     }
 }

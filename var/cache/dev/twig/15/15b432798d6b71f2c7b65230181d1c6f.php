@@ -188,7 +188,7 @@ class __TwigTemplate_43cd79384a182e77e04d24524a77aae4 extends Template
                 echo "\" role=\"button\" class=\"btn btn-outline-info\">modifier</a></td>
    <td><a href=\"";
                 // line 60
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_backoffice", ["clientId" => twig_get_attribute($this->env, $this->source, $context["client"], "id", [], "any", false, false, false, 60)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contrat_display", ["clientId" => twig_get_attribute($this->env, $this->source, $context["client"], "id", [], "any", false, false, false, 60)]), "html", null, true);
                 echo "\" role=\"button\" class=\"btn btn-outline-success\">contrats</a></td>
 
 </tr>
@@ -357,7 +357,7 @@ class __TwigTemplate_43cd79384a182e77e04d24524a77aae4 extends Template
   
   <td><a href=\"{{path('client_delete_admin',{'clientId':client.id})}}\" role=\"button\" onclick=\"return confirm('etes vous sur de vouloir supprimer ce client?')\" class=\" btn btn-outline-danger\">supprimer</a></td>
   <td><a href=\"{{path('client_update_admin',{'clientId':client.id})}}\" role=\"button\" class=\"btn btn-outline-info\">modifier</a></td>
-   <td><a href=\"{{path('admin_backoffice',{'clientId':client.id})}}\" role=\"button\" class=\"btn btn-outline-success\">contrats</a></td>
+   <td><a href=\"{{path('contrat_display',{'clientId':client.id})}}\" role=\"button\" class=\"btn btn-outline-success\">contrats</a></td>
 
 </tr>
 {% endfor %}
@@ -394,6 +394,6 @@ class __TwigTemplate_43cd79384a182e77e04d24524a77aae4 extends Template
 </tr>
 </table>
 {% endblock %}
-", "index/clients.html.twig", "C:\\xampp\\htdocs\\ProjetCaravane\\templates\\index\\clients.html.twig");
+", "index/clients.html.twig", "C:\\xampp\\htdocs\\DorancoExamen\\templates\\index\\clients.html.twig");
     }
 }

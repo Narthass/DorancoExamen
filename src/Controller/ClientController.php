@@ -4,16 +4,19 @@ namespace App\Controller;
 
 
 
+use App\Entity\User;
 use App\Entity\Client;
 use App\Entity\Contrat;
 use App\Form\ClientType;
+use function PHPSTORM_META\map;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\HttpFoundation\Response;
+
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ClientController extends AbstractController
@@ -25,7 +28,7 @@ class ClientController extends AbstractController
         $clientRepository = $entityManager->getRepository(Client::class);
         $clients = $clientRepository->findAll();
         $contratRepository = $entityManager->getRepository(Contrat::class);
-        $contrats = $contratRepository->findBy(['archivé'=>'0']);
+        $contrats = $contratRepository->findBy(['archivé' => '0']);
         $alerter = null;
         foreach ($contrats as $contrat) {
             $actuel = new \DateTime('now');
@@ -48,7 +51,7 @@ class ClientController extends AbstractController
                 $entityManager->flush();
             }
         }
-        
+
 
 
 
@@ -66,11 +69,11 @@ class ClientController extends AbstractController
     {
         $entityManager = $doctrine->getManager();
         $client = new Client;
-        
+
         $clientForm = $this->createForm(ClientType::class, $client);
         $clientForm->handleRequest($request);
         if ($clientForm->isSubmitted() && $clientForm->isValid()) {
-            
+
 
 
             $entityManager->persist($client);
@@ -118,7 +121,7 @@ class ClientController extends AbstractController
         $clientForm->handleRequest($request);
         if ($clientForm->isSubmitted() && $clientForm->isValid()) {
             //Prix minimum de 1€ pour effectuer la persistance
-            
+
             $entityManager->persist($client);
             $entityManager->flush();
             $this->addFlash(
@@ -145,61 +148,74 @@ class ClientController extends AbstractController
     public function sendEmail(ManagerRegistry $doctrine, MailerInterface $mailer): Response
     {
         $entityManager = $doctrine->getManager();
-        $contratRepository = $entityManager->getRepository(Contrat::class);
-        $contrats = $contratRepository->findBy(['archivé'=>'0']);
-        $alerter = null;
-         /** @var \App\Entity\User $user */
-        $user=$this->getUser();
-        $userMail=$user->getEmail();
-        foreach ($contrats as $contrat) {
-            $actuel = new \DateTime('now');
-            $pEcheance = $contrat->getProchaineEcheance();
+
+
+
+        $userRepository = $entityManager->getRepository(User::class);
+        $users = $userRepository->findAll();
+
+
+        foreach ($users as $user) {
+            $alerter = null;
+            $userClients = $user->getClients();
+            foreach ($userClients as $userClient) {
+                $userContrats = $userClient->getContrats();
+
+
+                foreach ($userContrats as $contrat) {
+                    $actuel = new \DateTime('now');
+                    $pEcheance = $contrat->getProchaineEcheance();
 
 
 
 
 
-            if (date_format($pEcheance, 'd-m-Y') == $actuel->format('d-m-Y')) {
-                if (is_null($alerter) == true) {
-                    $alerter = [];
+                    if (date_format($pEcheance, 'd-m-Y') == $actuel->format('d-m-Y')) {
+                        if (is_null($alerter) == true) {
+                            $alerter = [];
+                        }
+                        $alerter[] = $contrat;
+                    }
+
+                    /* Changement d'échéance*/
+                    if (date_format($pEcheance, 'd-m-Y') < $actuel->format('d-m-Y')) {
+                        $contrat->setProchaineEcheance(clone $contrat->getProchaineEcheance());
+                        date_add($contrat->getProchaineEcheance(), $contrat->getFrequencePayement());
+                        $contrat->setMontantRestant($contrat->getMontantRestant() + $contrat->getLoyer());
+                        $entityManager->persist($contrat);
+                        $entityManager->flush();
+                    }
                 }
-                $alerter[] = $contrat;
             }
 
-            /* Changement d'échéance*/
-            if (date_format($pEcheance, 'd-m-Y') < $actuel->format('d-m-Y')) {
-                $contrat->setProchaineEcheance(clone $contrat->getProchaineEcheance());
-                date_add($contrat->getProchaineEcheance(), $contrat->getFrequencePayement());
-                $contrat->setMontantRestant($contrat->getMontantRestant() + $contrat->getLoyer());
-                $entityManager->persist($contrat);
-                $entityManager->flush();
+
+            if (is_null($alerter) == false) {
+                $userMail = $user->getEmail();
+                $email = (new TemplatedEmail())
+                    ->from('locationchabotterie@gmail.com')
+                    ->to($userMail)
+                    //->cc('cc@example.com')
+                    //->bcc('bcc@example.com')
+                    //->replyTo('fabien@example.com')
+                    //->priority(Email::PRIORITY_HIGH)
+                    ->subject('Time for Symfony Mailer!')
+                    ->htmlTemplate('emails/alerte.html.twig')
+
+                    ->context([
+                        'alerte' => $alerter,
+
+                    ]);
+
+                $mailer->send($email);
             }
-        }
-        if (is_null($alerter) == false) {
 
-            $email = (new TemplatedEmail())
-                ->from('locationchabotterie@gmail.com') 
-                ->to($userMail)
-                //->cc('cc@example.com')
-                //->bcc('bcc@example.com')
-                //->replyTo('fabien@example.com')
-                //->priority(Email::PRIORITY_HIGH)
-                ->subject('Time for Symfony Mailer!')
-                ->htmlTemplate('emails/alerte.html.twig')
 
-                ->context([
-                    'alerte' => $alerter,
+            // ...
 
-                ]);
 
-            $mailer->send($email);
+            //Cette route sert à voir quels sont les contrat bientot arrivés à échéance
+
         }
         return $this->redirectToRoute('display_client');
-
-        // ...
-
-
-        //Cette route sert à voir quels sont les contrat bientot arrivés à échéance
-
     }
 }

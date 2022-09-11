@@ -26,6 +26,7 @@ class __TwigTemplate_99d8c4c3804e30285f0212a995ce0be9 extends Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
+            'meta' => [$this, 'block_meta'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -74,7 +75,27 @@ class __TwigTemplate_99d8c4c3804e30285f0212a995ce0be9 extends Template
 
     }
 
-    // line 5
+    // line 4
+    public function block_meta($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "meta"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "meta"));
+
+        echo "<meta name=\"description\" content=\"Interloc vous propose une nouvelle application à vous ,bailleurs,afin de gérer vos contrats de locations immobiliers gratuitement et simplement\">
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 7
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,13 +105,13 @@ class __TwigTemplate_99d8c4c3804e30285f0212a995ce0be9 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
+        // line 8
         echo "    <h1 class='titre'>Bienvenue sur Interloc !</h1>
     <p class='paragraphe'>Gérez vos bails en toute simplicité avec notre tout nouveau Gestionnaire de location !
     Les différentes étapes de vos contrats seront suivis par notre application.
     De leurs créations à leur archivage.
     N'hésitez pas à créer un compte dès maintenant <a class=\"btn btn-success text-light\" href=\"";
-        // line 10
+        // line 12
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
         echo "\" >en cliquant ici !</a>
     </p>
@@ -98,14 +119,14 @@ class __TwigTemplate_99d8c4c3804e30285f0212a995ce0be9 extends Template
         
         <figure class=\"figure \">
             <img src=\"";
-        // line 15
+        // line 17
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/portrait.png "), "html", null, true);
         echo "\" class= \" figure-img border border-success rounded-circle border-3\"  alt=\"etape-client\">
             <figcaption class=\"figure-caption text-right rounded-5 border border-success rounded-pill  text-light p-3\">Commencez par créer votre client ...</figcaption>
         </figure>
         <figure class=\"figure\"> 
             <img src=\"";
-        // line 19
+        // line 21
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/fleche.png"), "html", null, true);
         echo "\"class=\" figure-img\"  alt=\"fleche\">
             
@@ -113,21 +134,21 @@ class __TwigTemplate_99d8c4c3804e30285f0212a995ce0be9 extends Template
         </figure>
         <figure class=\"figure\">
             <img src=\"";
-        // line 24
+        // line 26
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/contracter.png"), "html", null, true);
         echo "\"class=\" figure-img border border-success rounded-circle border-3\"  alt=\"etape-contrat\">
             <figcaption class=\"figure-caption text-right rounded-5 border border-success rounded-pill  text-light p-3\">Puis liez lui un contrat ...</figcaption>       
         </figure>
          <figure class=\"figure\">
             <img src=\"";
-        // line 28
+        // line 30
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/fleche.png"), "html", null, true);
         echo "\"class=\" figure-img\"  alt=\"fleche\">
             
          </figure>
         <figure class=\"figure\">
             <img src=\"";
-        // line 32
+        // line 34
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/paiement.png"), "html", null, true);
         echo "\"class=\" figure-img border border-success rounded-circle border-3\"  alt=\"etape-paiement\">
             <figcaption class=\"figure-caption text-right rounded-5 border border-success rounded-pill text-light p-3\">Il ne vous reste plus qu'a gérer les paiements qui lui seront liés !</figcaption>
@@ -163,7 +184,7 @@ class __TwigTemplate_99d8c4c3804e30285f0212a995ce0be9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  131 => 32,  124 => 28,  117 => 24,  109 => 19,  102 => 15,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  152 => 34,  145 => 30,  138 => 26,  130 => 21,  123 => 17,  115 => 12,  109 => 8,  99 => 7,  79 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -171,7 +192,9 @@ class __TwigTemplate_99d8c4c3804e30285f0212a995ce0be9 extends Template
         return new Source("{% extends 'base.html.twig' %}
 
 {% block title %}Bienvenue sur Interloc ! {% endblock %}
-
+{% block meta %}<meta name=\"description\" content=\"Interloc vous propose une nouvelle application à vous ,bailleurs,afin de gérer vos contrats de locations immobiliers gratuitement et simplement\">
+{% endblock
+%}
 {% block body %}
     <h1 class='titre'>Bienvenue sur Interloc !</h1>
     <p class='paragraphe'>Gérez vos bails en toute simplicité avec notre tout nouveau Gestionnaire de location !
@@ -213,6 +236,6 @@ class __TwigTemplate_99d8c4c3804e30285f0212a995ce0be9 extends Template
 
 
 {% endblock %}
-", "index/index.html.twig", "C:\\xampp\\htdocs\\ProjetCaravane\\templates\\index\\index.html.twig");
+", "index/index.html.twig", "C:\\xampp\\htdocs\\DorancoExamen\\templates\\index\\index.html.twig");
     }
 }

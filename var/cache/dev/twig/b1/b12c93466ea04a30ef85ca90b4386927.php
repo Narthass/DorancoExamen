@@ -40,7 +40,7 @@ class __TwigTemplate_5b50fceea057233e550370ef56909b86 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "layout/header.html.twig"));
 
         // line 1
-        echo "<nav class=\"navbar navbar-expand-lg bg-success\">
+        echo "<nav class=\"navbar navbar-expand-lg bg-success mb-5 \">
 \t<div class=\"container-fluid d-flex justify-content-end\" >
 \t\t<a class=\"navbar-brand h-100 \" href=\"";
         // line 3
@@ -160,7 +160,7 @@ class __TwigTemplate_5b50fceea057233e550370ef56909b86 extends Template
 
     public function getSourceContext()
     {
-        return new Source("<nav class=\"navbar navbar-expand-lg bg-success\">
+        return new Source("<nav class=\"navbar navbar-expand-lg bg-success mb-5 \">
 \t<div class=\"container-fluid d-flex justify-content-end\" >
 \t\t<a class=\"navbar-brand h-100 \" href=\"{{path('app_index')}}\" id='logo'><img class='h-100' src='{{asset('images/logo.png')}}'></a>
 \t    <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -214,6 +214,6 @@ class __TwigTemplate_5b50fceea057233e550370ef56909b86 extends Template
 \t\t</div>
 \t</div>
 </nav>
-", "layout/header.html.twig", "C:\\xampp\\htdocs\\ProjetCaravane\\templates\\layout\\header.html.twig");
+", "layout/header.html.twig", "C:\\xampp\\htdocs\\DorancoExamen\\templates\\layout\\header.html.twig");
     }
 }

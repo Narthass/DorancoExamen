@@ -40,7 +40,7 @@ class __TwigTemplate_979f3edc4ce237208bb2b38cd550ce47 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "layout/footer.html.twig"));
 
         // line 1
-        echo "<div class=\"container bg-info \">
+        echo "<div class=\"container bg-info  \">
   <footer class=\"py-3 my-4  \">
     <ul class=\"nav justify-content-center border-bottom border-light pb-3 mb-3\">
       
@@ -79,7 +79,7 @@ class __TwigTemplate_979f3edc4ce237208bb2b38cd550ce47 extends Template
 
     public function getSourceContext()
     {
-        return new Source("<div class=\"container bg-info \">
+        return new Source("<div class=\"container bg-info  \">
   <footer class=\"py-3 my-4  \">
     <ul class=\"nav justify-content-center border-bottom border-light pb-3 mb-3\">
       
@@ -89,6 +89,6 @@ class __TwigTemplate_979f3edc4ce237208bb2b38cd550ce47 extends Template
     </ul>
     <p class=\"text-center text-light\">© 2022 Company, Inc</p>
   </footer>
-</div>", "layout/footer.html.twig", "C:\\xampp\\htdocs\\ProjetCaravane\\templates\\layout\\footer.html.twig");
+</div>", "layout/footer.html.twig", "C:\\xampp\\htdocs\\DorancoExamen\\templates\\layout\\footer.html.twig");
     }
 }

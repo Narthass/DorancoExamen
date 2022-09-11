@@ -111,10 +111,7 @@ class __TwigTemplate_946a0902e58bfcb59f33586fdcab4507 extends Template
         // line 23
         echo "
 
-\t<a href=\"";
-        // line 25
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("payement_create", ["contratId" => twig_get_attribute($this->env, $this->source, (isset($context["contrat"]) || array_key_exists("contrat", $context) ? $context["contrat"] : (function () { throw new RuntimeError('Variable "contrat" does not exist.', 25, $this->source); })()), "id", [], "any", false, false, false, 25)]), "html", null, true);
-        echo "\" role=\"button\" class=\"w3-btn w3-white w3-border w3-border-yellow w3-round-xlarge\">Archiver un payement</a>
+
 
 
 \t
@@ -274,7 +271,7 @@ class __TwigTemplate_946a0902e58bfcb59f33586fdcab4507 extends Template
 
     public function getDebugInfo()
     {
-        return array (  255 => 104,  248 => 102,  239 => 96,  231 => 91,  225 => 88,  213 => 78,  209 => 76,  205 => 74,  203 => 73,  196 => 69,  192 => 67,  189 => 66,  185 => 65,  179 => 62,  174 => 60,  170 => 59,  157 => 49,  153 => 47,  148 => 44,  140 => 40,  138 => 39,  131 => 36,  129 => 35,  116 => 25,  112 => 23,  106 => 21,  104 => 20,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  252 => 104,  245 => 102,  236 => 96,  228 => 91,  222 => 88,  210 => 78,  206 => 76,  202 => 74,  200 => 73,  193 => 69,  189 => 67,  186 => 66,  182 => 65,  176 => 62,  171 => 60,  167 => 59,  154 => 49,  150 => 47,  145 => 44,  137 => 40,  135 => 39,  128 => 36,  126 => 35,  112 => 23,  106 => 21,  104 => 20,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -303,7 +300,7 @@ class __TwigTemplate_946a0902e58bfcb59f33586fdcab4507 extends Template
 \t{% endif %}
 
 
-\t<a href=\"{{path('payement_create',{'contratId':contrat.id})}}\" role=\"button\" class=\"w3-btn w3-white w3-border w3-border-yellow w3-round-xlarge\">Archiver un payement</a>
+
 
 
 \t
@@ -384,6 +381,6 @@ class __TwigTemplate_946a0902e58bfcb59f33586fdcab4507 extends Template
 \t\t{% endfor %}
 
 \t{% endblock %}
-", "index/payements.html.twig", "C:\\xampp\\htdocs\\ProjetCaravane\\templates\\index\\payements.html.twig");
+", "index/payements.html.twig", "C:\\xampp\\htdocs\\DorancoExamen\\templates\\index\\payements.html.twig");
     }
 }
