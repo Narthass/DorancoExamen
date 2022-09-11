@@ -27,29 +27,51 @@ class ClientController extends AbstractController
         $entityManager = $doctrine->getManager();
         $clientRepository = $entityManager->getRepository(Client::class);
         $clients = $clientRepository->findAll();
-        $contratRepository = $entityManager->getRepository(Contrat::class);
-        $contrats = $contratRepository->findBy(['archivé' => '0']);
+        
         $alerter = null;
-        foreach ($contrats as $contrat) {
-            $actuel = new \DateTime('now');
-            $pEcheance = $contrat->getProchaineEcheance();
-
-            $frequence = $contrat->getFrequencePayement();
+        $entityManager = $doctrine->getManager();
 
 
 
-            if (date_format($pEcheance, 'd-m-Y') == $actuel->format('d-m-Y') && $contrat->getMontantRestant() > 0) {
-                if (is_null($alerter) == true) {
-                    $alerter = [];
+        $userRepository = $entityManager->getRepository(User::class);
+        $users = $userRepository->findAll();
+
+
+        foreach ($users as $user) {
+            $alerter = null;
+            $userClients = $user->getClients();
+            foreach ($userClients as $userClient) {
+                $userContrats = $userClient->getContrats();
+
+
+                foreach ($userContrats as $contrat) {
+                    $actuel = new \DateTime('now');
+                    $pEcheance = $contrat->getProchaineEcheance();
+
+
+
+
+
+                    if (date_format($pEcheance, 'd-m-Y') == $actuel->format('d-m-Y')) {
+                        if (is_null($alerter) == true) {
+                            $alerter = [];
+                        }
+                        $alerter[] = $contrat;
+                    }
+
+                    /* Changement d'échéance*/
+                   
                 }
-                $alerter[] = $contrat;
             }
-            if ($actuel->format('d-m-Y') > date_format($pEcheance, 'd-m-Y')) {
-                date_add($pEcheance, $frequence);
 
-                $entityManager->persist($contrat);
-                $entityManager->flush();
-            }
+
+           
+
+            // ...
+
+
+            //Cette route sert à voir quels sont les contrat bientot arrivés à échéance
+
         }
 
 
