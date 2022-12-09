@@ -40,7 +40,7 @@ class __TwigTemplate_5b50fceea057233e550370ef56909b86 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "layout/header.html.twig"));
 
         // line 1
-        echo "<nav class=\"navbar navbar-expand-lg bg-success mb-5 \">
+        echo "<nav class=\"navbar-dark navbar-expand-lg bg-success mb-5 \">
 \t<div class=\"container-fluid d-flex justify-content-end\" >
 \t\t<a class=\"navbar-brand h-100 \" href=\"";
         // line 3
@@ -100,36 +100,37 @@ class __TwigTemplate_5b50fceea057233e550370ef56909b86 extends Template
                 echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("display_client");
                 echo "\">Client</a>
 \t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t<a class=\"dropdown-item bg-success text-light\" href=\"";
-                // line 37
+                // line 38
                 echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
                 echo "\">Deconnection</a>
 \t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t";
             }
-            // line 41
+            // line 42
             echo "\t\t\t\t\t</li>
 
 \t\t\t\t";
         } else {
-            // line 44
+            // line 45
             echo "\t\t\t\t\t<li class=\"nav-item bg-success text-light\">
 \t\t\t\t\t\t<a class=\"nav-link active text-light\" aria-current=\"page\" href=\"";
-            // line 45
+            // line 46
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
             echo "\">S'inscrire</a>
 \t\t\t\t\t</li>
 \t\t\t\t\t<li class=\"nav-item bg-success\">
 \t\t\t\t\t\t<a class=\"nav-link active text-light\" aria-current=\"page\" href=\"";
-            // line 48
+            // line 49
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Se connecter</a>
 \t\t\t\t\t</li>
 \t\t\t\t";
         }
-        // line 51
+        // line 52
         echo "\t\t\t</ul>
 \t\t</div>
 \t</div>
@@ -155,12 +156,12 @@ class __TwigTemplate_5b50fceea057233e550370ef56909b86 extends Template
 
     public function getDebugInfo()
     {
-        return array (  133 => 51,  127 => 48,  121 => 45,  118 => 44,  113 => 41,  106 => 37,  100 => 34,  95 => 31,  86 => 25,  80 => 22,  76 => 20,  74 => 19,  68 => 15,  66 => 14,  59 => 10,  47 => 3,  43 => 1,);
+        return array (  134 => 52,  128 => 49,  122 => 46,  119 => 45,  114 => 42,  107 => 38,  100 => 34,  95 => 31,  86 => 25,  80 => 22,  76 => 20,  74 => 19,  68 => 15,  66 => 14,  59 => 10,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<nav class=\"navbar navbar-expand-lg bg-success mb-5 \">
+        return new Source("<nav class=\"navbar-dark navbar-expand-lg bg-success mb-5 \">
 \t<div class=\"container-fluid d-flex justify-content-end\" >
 \t\t<a class=\"navbar-brand h-100 \" href=\"{{path('app_index')}}\" id='logo'><img class='h-100' src='{{asset('images/logo.png')}}'></a>
 \t    <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -195,6 +196,7 @@ class __TwigTemplate_5b50fceea057233e550370ef56909b86 extends Template
 \t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t<a class=\"dropdown-item bg-success text-light\" href=\"{{path('display_client')}}\">Client</a>
 \t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t<a class=\"dropdown-item bg-success text-light\" href=\"{{path('app_logout')}}\">Deconnection</a>
 \t\t\t\t\t\t\t\t</li>

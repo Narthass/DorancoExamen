@@ -6,16 +6,17 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Entity\Client;
+use App\Form\UserType;
 use App\Entity\Contrat;
-use App\Form\ClientType;
 
+use App\Form\ClientType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
+
 use Symfony\Component\Mailer\MailerInterface;
 
 use Symfony\Component\HttpFoundation\Response;
-
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -27,51 +28,29 @@ class ClientController extends AbstractController
         $entityManager = $doctrine->getManager();
         $clientRepository = $entityManager->getRepository(Client::class);
         $clients = $clientRepository->findAll();
-        
+        $contratRepository = $entityManager->getRepository(Contrat::class);
+        $contrats = $contratRepository->findBy(['archivé' => '0']);
         $alerter = null;
-        $entityManager = $doctrine->getManager();
+        foreach ($contrats as $contrat) {
+            $actuel = new \DateTime('now');
+            $pEcheance = $contrat->getProchaineEcheance();
+
+            $frequence = $contrat->getFrequencePayement();
 
 
 
-        $userRepository = $entityManager->getRepository(User::class);
-        $users = $userRepository->findAll();
-
-
-        foreach ($users as $user) {
-            $alerter = null;
-            $userClients = $user->getClients();
-            foreach ($userClients as $userClient) {
-                $userContrats = $userClient->getContrats();
-
-
-                foreach ($userContrats as $contrat) {
-                    $actuel = new \DateTime('now');
-                    $pEcheance = $contrat->getProchaineEcheance();
-
-
-
-
-
-                    if (date_format($pEcheance, 'd-m-Y') == $actuel->format('d-m-Y')) {
-                        if (is_null($alerter) == true) {
-                            $alerter = [];
-                        }
-                        $alerter[] = $contrat;
-                    }
-
-                    /* Changement d'échéance*/
-                   
+            if (date_format($pEcheance, 'd-m-Y') == $actuel->format('d-m-Y') && $contrat->getMontantRestant() > 0) {
+                if (is_null($alerter) == true) {
+                    $alerter = [];
                 }
+                $alerter[] = $contrat;
             }
+            if ($actuel->format('d-m-Y') > date_format($pEcheance, 'd-m-Y')) {
+                date_add($pEcheance, $frequence);
 
-
-           
-
-            // ...
-
-
-            //Cette route sert à voir quels sont les contrat bientot arrivés à échéance
-
+                $entityManager->persist($contrat);
+                $entityManager->flush();
+            }
         }
 
 
@@ -91,9 +70,9 @@ class ClientController extends AbstractController
     {
         $entityManager = $doctrine->getManager();
         $client = new Client;
-         /** @var \App\Entity\User $user */
-         $user=$this->getUser();
-         $client->setUser($user);
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
+        $client->setUser($user);
 
         $clientForm = $this->createForm(ClientType::class, $client);
         $clientForm->handleRequest($request);
@@ -155,7 +134,7 @@ class ClientController extends AbstractController
             );
 
             //Nous retournons au backoffice Administrateur
-            return $this->redirectToRoute('display_client');
+            return $this->redirectToRoute('app_index');
         }
         return $this->render('index/dataform.html.twig', [
 
@@ -163,6 +142,7 @@ class ClientController extends AbstractController
             'dataForm' => $clientForm->createView(),
         ]);
     }
+
 
 
 
@@ -242,5 +222,36 @@ class ClientController extends AbstractController
 
         }
         return $this->redirectToRoute('display_client');
+    }
+    #[Route('user/update/', name: 'user_update')]
+    public function updateUser(ManagerRegistry $doctrine, Request $request): Response
+    {
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
+        $entityManager = $doctrine->getManager();
+
+
+
+
+        $userForm = $this->createForm(UserType::class, $user);
+        $userForm->handleRequest($request);
+        if ($userForm->isSubmitted() && $userForm->isValid()) {
+
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+            $this->addFlash(
+                'success',
+                'Vos informations ont bien été mise à jour !'
+            );
+
+            //Nous retournons au backoffice Administrateur
+            return $this->redirectToRoute('app_index');
+        }
+        return $this->render('index/dataform.html.twig', [
+
+            'formName' => "modification de l'utilisateur",
+            'dataForm' => $userForm->createView(),
+        ]);
     }
 }
